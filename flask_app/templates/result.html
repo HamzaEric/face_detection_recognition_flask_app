@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facial Recognition Results</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         ANALYSIS RESULTS
+    ================================================== -->
+
+    <section class="upload-section results-section">
+
+
+        <!-- =========================
+             RESULTS HEADER
+        ========================== -->
+
+        <div class="upload-header">
+
+            <h1>
+                Analysis Complete
+            </h1>
+
+            <p>
+                The facial recognition pipeline has finished processing
+                the image. The processed result is displayed below.
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             RESULT CONTAINER
+        ========================== -->
+
+        <div class="result-container">
+
+
+            <!-- =========================
+                 PROCESSED IMAGE
+            ========================== -->
+
+            <div class="result-image-box">
+
+                <img
+                    src="data:image/jpeg;base64,{{ image_data }}"
+                    alt="Processed Face Scan"
+                >
+
+            </div>
+
+
+
+            <!-- =========================
+                 ACTION
+            ========================== -->
+
+            <div class="result-action">
+
+                <a
+                    href="/"
+                    class="action-button"
+                >
+                    Perform Another Scan
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</body>
+
+</html>

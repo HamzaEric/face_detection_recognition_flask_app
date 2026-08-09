@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facial Recognition</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+   <header class="app-header">
+
+    <div class="app-brand">
+        <span class="brand-symbol">◈</span>
+        <span class="brand-name">FaceVector</span>
+    </div>
+
+    <div class="app-description">
+        Facial Recognition Engine
+    </div>
+
+    <div class="app-version">
+        v1.0
+    </div>
+
+</header>
+
+
+    <!-- ==================================================
+         TECHNOLOGY CARDS
+    ================================================== -->
+
+    <div class="cards-container">
+
+
+        <!-- =========================
+             PYTORCH
+        ========================== -->
+
+        <div class="stat-card pytorch-card">
+
+            <div class="card-content">
+
+                <div class="card-title">
+                    PyTorch
+                </div>
+
+                <div class="card-value">
+                    Deep Learning
+                </div>
+
+                <div class="card-description">
+                    Neural network framework
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             FACIAL RECOGNITION
+        ========================== -->
+
+        <div class="stat-card face-card">
+
+            <div class="card-content">
+
+                <div class="card-title">
+                    Facial Recognition
+                </div>
+
+                <div class="card-value">
+                    Computer Vision
+                </div>
+
+                <div class="card-description">
+                    Face detection & recognition
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             FLASK
+        ========================== -->
+
+        <div class="stat-card flask-card">
+
+            <div class="card-content">
+
+                <div class="card-title">
+                    Flask
+                </div>
+
+                <div class="card-value">
+                    Web Application
+                </div>
+
+                <div class="card-description">
+                    Python backend framework
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         FACE EMBEDDINGS SECTION
+    ================================================== -->
+
+    <section class="face-embeddings-section">
+
+
+        <!-- =========================
+             SECTION INFORMATION
+        ========================== -->
+
+        <div class="people-info">
+
+            <h1>
+                Face Embeddings Information
+            </h1>
+
+            <p>
+                The face embeddings used in this system were extracted
+                from a YouTube video from the Financially Incorrect
+                podcast. As a result, the current dataset is limited
+                to these two individuals.
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             PEOPLE CARDS
+        ========================== -->
+
+        <div class="people-container">
+
+
+            <!-- =========================
+                 EDWARD KIRATHE
+            ========================== -->
+
+            <div class="person-card">
+
+                <div class="person-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/edward-kirathe-1.jpg') }}"
+                        alt="Edward Kirathe"
+                    >
+
+                </div>
+
+
+                <div class="person-content">
+
+                    <h2>
+                        Edward Kirathe
+                    </h2>
+
+                    <p>
+                        Edward Kirathe is one of the individuals
+                        represented in this facial recognition
+                        system. Upload an image to test whether
+                        the system can identify him.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 BARACK BUKUSI
+            ========================== -->
+
+            <div class="person-card">
+
+                <div class="person-image">
+
+                    <img
+                        src="{{ url_for('static', filename='images/barack bukusi.jpg') }}"
+                        alt="Barack Bukusi"
+                    >
+
+                </div>
+
+
+                <div class="person-content">
+
+                    <h2>
+                        Barack Bukusi
+                    </h2>
+
+                    <p>
+                        Barack Bukusi is one of the individuals
+                        represented in this facial recognition
+                        system. Upload an image to test whether
+                        the system can identify him.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         UPLOAD OR TEST
+    ================================================== -->
+
+    <section class="upload-section">
+
+        <div class="upload-header">
+
+            <h1>
+                Upload or Test
+            </h1>
+
+            <p>
+                Test the facial recognition system using one of the
+                sample images below, or upload your own image.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             SAMPLE TEST IMAGES
+        ========================== -->
+
+        <div class="test-images-container">
+
+
+            <!-- Edward Test Image 1 -->
+
+            <div class="test-image-card">
+
+                <img
+                    id="img-edward-1"
+                    src="{{ url_for('static', filename='images/edward-test-1.jpg') }}"
+                    alt="Edward Kirathe test image"
+                >
+
+                <div class="test-image-info">
+
+                    <h3>
+                        Edward Kirathe
+                    </h3>
+
+                    <button type="button" onclick="submitTestImage('img-edward-1', this)">
+                        Test Image
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Edward Test Image 2 -->
+
+            <div class="test-image-card">
+
+                <img
+                    id="img-edward-2"
+                    src="{{ url_for('static', filename='images/edward-test-2.jpg') }}"
+                    alt="Edward Kirathe test image"
+                >
+
+                <div class="test-image-info">
+
+                    <h3>
+                        Edward Kirathe
+                    </h3>
+
+                    <button type="button" onclick="submitTestImage('img-edward-2', this)">
+                        Test Image
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Barack Test Image 1 -->
+
+            <div class="test-image-card">
+
+                <img
+                    id="img-barack-1"
+                    src="{{ url_for('static', filename='images/barack-test-1.jpg') }}"
+                    alt="Barack Bukusi test image"
+                >
+
+                <div class="test-image-info">
+
+                    <h3>
+                        Barack Bukusi
+                    </h3>
+
+                    <button type="button" onclick="submitTestImage('img-barack-1', this)">
+                        Test Image
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Barack Test Image 2 -->
+
+            <div class="test-image-card">
+
+                <img
+                    id="img-barack-2"
+                    src="{{ url_for('static', filename='images/edward-barack.jpg') }}"
+                    alt="Barack Bukusi test image"
+                >
+
+                <div class="test-image-info">
+
+                    <h3>
+                        Barack Bukusi
+                    </h3>
+
+                    <button type="button" onclick="submitTestImage('img-barack-2', this)">
+                        Test Image
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             UPLOAD YOUR OWN
+        ========================== -->
+
+        <div class="upload-divider">
+
+            <span>OR</span>
+
+        </div>
+
+
+        <div class="custom-upload">
+
+            <h2>
+                Test Your Own Image
+            </h2>
+
+            <p>
+                Upload an image containing a face.
+            </p>
+
+            <form
+                id="mainUploadForm"
+                action="/recognize"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <input
+                    id="fileInput"
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    required
+                >
+
+                <button id="submitBtn" type="submit">
+                    Process Image
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- ==================================================
+         JAVASCRIPT FOR TEST IMAGES
+    ================================================== -->
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const mainUploadForm = document.getElementById('mainUploadForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Optional: Show loading state on manual upload
+        mainUploadForm.addEventListener('submit', function() {
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+        });
+
+        // Function to fetch a static image and submit it as if it were uploaded manually
+        async function submitTestImage(imgId, buttonElement) {
+            const originalText = buttonElement.textContent;
+            buttonElement.textContent = "Fetching...";
+            buttonElement.disabled = true;
+
+            try {
+                // Get the image source URL
+                const imgSrc = document.getElementById(imgId).src;
+
+                // Fetch the image data
+                const response = await fetch(imgSrc);
+                const blob = await response.blob();
+
+                // Create a File object from the blob
+                const file = new File([blob], imgId + ".jpg", { type: "image/jpeg" });
+
+                // Create a DataTransfer object to assign the file to the input
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                fileInput.files = dataTransfer.files;
+
+                // Submit the form
+                buttonElement.textContent = "Scanning...";
+                mainUploadForm.submit();
+
+            } catch (error) {
+                console.error("Error loading test image:", error);
+                buttonElement.textContent = "Error";
+                setTimeout(() => {
+                    buttonElement.textContent = originalText;
+                    buttonElement.disabled = false;
+                }, 2000);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
